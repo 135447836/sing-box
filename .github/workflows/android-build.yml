@@ -139,6 +139,8 @@ jobs:
           key: go_win7_1258
       - name: Setup Go for Windows 7
         if: matrix.legacy_win7 && steps.cache-go-for-windows7.outputs.cache-hit != 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |-
           .github/setup_go_for_windows7.sh
       - name: Setup Go for Windows 7
